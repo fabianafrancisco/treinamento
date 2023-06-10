@@ -16,23 +16,19 @@ contract Aluguel {
     //O nome das partes, locador e locatário, e o valor inicial de cada aluguel deve 
     //ser informado no momento da publicação do contrato.        
     constructor(string memory _nmLocador, string memory _nmLocatario, 
-        uint256 _vrAluguel) {
+        uint256 _vrAluguel, uint qtdeMeses) {
         nmLocador = _nmLocador;
         nmLocatario = _nmLocatario;
-        vrAluguel.push(_vrAluguel);
+        for(uint i; i < qtdeMeses; i++){
+            vrAluguel.push(_vrAluguel);
+        }
     }
 
     //funcao que recebe o numero do mes e retorna o valor do aluguel daquele mes
     function retornarValorAluguelMes(uint256 nuMes) public 
     view
-    returns(uint256 vrAluguelSelecionado) {
-        for(uint i; i < vrAluguel.length; i++){
-            if(i == nuMes){
-                vrAluguelSelecionado = vrAluguel[i];
-                break;
-            }
-        }
-        return vrAluguelSelecionado;
+    returns(uint256) {
+        return vrAluguel[nuMes - 1];
     }
 
     //funcao que retorna o nome do locador e do locatario
