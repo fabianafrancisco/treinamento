@@ -58,7 +58,7 @@ contract Aluguel {
         require(tpPessoa != 1 || tpPessoa != 2, "Tipo de possoa invalio");
         if(tpPessoa == 1){
             contratoAluguel.nmLocador = _nmLocador;
-        } else if (tpPessoa == 2) {
+        } else {
             contratoAluguel.nmLocatario = _nmLocatario;
         }
     }
